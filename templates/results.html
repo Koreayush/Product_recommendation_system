@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartShop - Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="top-bar">
+    <h1>Recommended Products</h1>
+    <a href="/" class="back-link">← New Search</a>
+</header>
+
+<section class="query-info">
+    <p>Showing results for</p>
+    <h2>"{{ product_name }}"</h2>
+</section>
+
+<section class="cards-container">
+    {% for r in recommendations %}
+    <div class="product-card">
+
+        <!-- Product Image -->
+        <div class="image-wrapper">
+            <img 
+                src="{{ r.product_image_url_jpeg }}" 
+                alt="{{ r.product_name }}"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/300x200?text=No+Image';"
+            >
+        </div>
+
+        <!-- Product Info -->
+        <h3>{{ r.product_name }}</h3>
+
+        <div class="meta">
+            <p><span>Brand:</span> {{ r.product_brand }}</p>
+            <p><span>Category:</span> {{ r.product_category }}</p>
+            <p><span>Price:</span> ₹{{ r.product_price }}</p>
+            <p><span>Reviews:</span> {{ r.product_reviews_count }}</p>
+            <p class="rating">⭐ {{ r.rating_for_model }}</p>
+        </div>
+
+    </div>
+    {% endfor %}
+</section>
+
+</body>
+</html>

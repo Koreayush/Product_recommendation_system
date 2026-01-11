@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartShop - Product Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Top Navbar -->
+<header class="top-navbar">
+    <h1>🛍 Product Recommendation System</h1>
+</header>
+
+<!-- Main Content -->
+<main class="content-top">
+    <div class="search-box-top">
+
+        <div class="ai-badge">🤖 AI Powered</div>
+
+        <h1>Welcome to SmartShop</h1>
+
+        <p class="welcome-text">
+            Discover products you’ll love using <strong>Machine Learning</strong> ✨  
+            Just search once — we’ll handle the intelligence.
+        </p>
+
+        <form action="/search" method="POST">
+            <!-- Dropdown for sample products -->
+            <select name="product_name" required>
+                <option value="" disabled selected>🔍 Select a product...</option>
+                {% for p in products %}
+                <option value="{{ p }}">{{ p }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Get Recommendations 🚀</button>
+        </form>
+
+        <!-- Feature Highlights -->
+        <div class="features">
+            <div class="feature-card">
+                ⚡ <span>Instant Results</span>
+            </div>
+            <div class="feature-card">
+                🎯 <span>Personalized</span>
+            </div>
+            <div class="feature-card">
+                📊 <span>ML-Based Ranking</span>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>
