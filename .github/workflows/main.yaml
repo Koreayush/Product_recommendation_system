@@ -10,7 +10,7 @@ env:
   ECS_CLUSTER: product-recommendation-api-test
   ECS_SERVICE: product_recommendation_test-service-4v9iew4c 
   ECS_TASK_DEFINITION: task-defination.json
-  CONTAINER_NAME: product-recommendendation-api
+  CONTAINER_NAME: product-recommendation-api-test
   DOCKER_IMAGE: ayushkore/product-recommendation-api
   IMAGE_TAG: latest 
 

@@ -1,82 +1,30 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:173732810069:task-definition/product_recommendation_test:2",
-    "containerDefinitions": [
+  "family": "product_recommendation_test",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "3072",
+  "executionRoleArn": "arn:aws:iam::173732810069:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::173732810069:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "product-recommendation-api-test",
+      "image": "ayushkore/product-recommendation-api",
+      "essential": true,
+      "portMappings": [
         {
-            "name": "product-recommendation-api-test",
-            "image": "ayushkore/product-recommendation-api",
-            "cpu": 0,
-            "portMappings": [
-                {
-                    "name": "product-recommendation-api-test-80-tcp",
-                    "containerPort": 80,
-                    "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                }
-            ],
-            "essential": true,
-            "environment": [],
-            "mountPoints": [],
-            "volumesFrom": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/product_recommendation_test",
-                    "awslogs-create-group": "true",
-                    "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "ecs"
-                }
-            },
-            "systemControls": []
+          "containerPort": 80,
+          "protocol": "tcp"
         }
-    ],
-    "family": "product_recommendation_test",
-    "taskRoleArn": "arn:aws:iam::173732810069:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::173732810069:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
-    "revision": 2,
-    "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/product_recommendation_test",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
         }
-    ],
-    "placementConstraints": [],
-    "compatibilities": [
-        "EC2",
-        "MANAGED_INSTANCES",
-        "FARGATE"
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "cpu": "1024",
-    "memory": "3072",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2026-01-12T10:32:43.800Z",
-    "registeredBy": "arn:aws:iam::173732810069:root",
-    "enableFaultInjection": false,
-    "tags": []
+      }
+    }
+  ]
 }
