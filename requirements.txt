@@ -1,12 +1,11 @@
 flask
 pandas
 numpy
-matplotlib
-seaborn
-plotly
+pickle-mixin
 scikit-learn
 faiss-cpu
 lightgbm
 torch --index-url https://download.pytorch.org/whl/cpu
 transformers==4.30.2
 sentence-transformers==2.2.2
+gunicorn
