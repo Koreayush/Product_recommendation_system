@@ -128,7 +128,7 @@ POST /recommend
 
 ```json
 {
-  "recommendations": [101, 205, 309, 412, 518]
+  "recommendations": [Product_names]
 }
 ```
 
