@@ -1,6 +1,12 @@
 # 🛍️ Product Recommendation System — Production Ready AI Service
 
 ---
+## Project Link 
+
+[Product_recommendation_system](http://44.192.252.51:8000)
+
+---
+
 
 ## 🔹 Overview
 
